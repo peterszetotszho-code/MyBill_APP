@@ -1,4 +1,4 @@
-# heima-bill-tmp
+# My-Bill-tmp
 
 An Electron application with React
 
