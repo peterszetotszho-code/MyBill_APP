@@ -16,6 +16,24 @@ A simple, clean desktop app for tracking your daily expenses — completely offl
 - **Cross-platform** — runs on Windows and macOS.
 - **100% local & offline** — your data never leaves your computer.
 
+## 📸 Screenshots
+
+**Record**
+
+![Record](screenshots/record.png)
+
+**Bills**
+
+![Bills](screenshots/bills.png)
+
+**Categories**
+
+![Categories](screenshots/categories.png)
+
+**Statistics**
+
+![Statistics](screenshots/stats.png)
+
 ## 🛠 Tech Stack
 
 | Layer | Choice |
