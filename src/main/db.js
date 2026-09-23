@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from 'fs'
 let db = null
 let dbFilePath = null
 
-// 默认分类（三语：name=简体 / tw=繁体 / en=英文）
+// Default categories (trilingual: name=Simplified Chinese / tw=Traditional Chinese / en=English)
 export const DEFAULT_CATEGORIES = [
   {
     name: '餐饮美食',
@@ -185,7 +185,7 @@ export async function initDatabase() {
     created_at TEXT NOT NULL
   )`)
 
-  // 迁移：旧表补三语列
+  // Migration: add trilingual columns to legacy tables
   ensureColumn('categories', 'name_tw', "name_tw TEXT NOT NULL DEFAULT ''")
   ensureColumn('categories', 'name_en', "name_en TEXT NOT NULL DEFAULT ''")
   ensureColumn('expenses', 'category_name_tw', 'category_name_tw TEXT')
@@ -214,7 +214,7 @@ export async function initDatabase() {
       })
     })
   } else {
-    // 已有数据：给默认分类补三语（按简体名精确匹配）
+    // Existing data: backfill trilingual names for default categories (matched by simplified name)
     DEFAULT_CATEGORIES.forEach((cat) => {
       run('UPDATE categories SET name_tw = ?, name_en = ? WHERE name = ? AND parent_id = 0', [
         cat.tw,
@@ -307,7 +307,7 @@ export function addCategory(name, parentId = 0) {
     'SELECT COALESCE(MAX(sort), -1) + 1 AS s FROM categories WHERE parent_id = ?',
     [parentId]
   )[0].s
-  // 用户自定义分类：只填一个名称，三语共用（暂不自动翻译）
+  // User-created category: one name shared across all three languages (no auto translation for now)
   run('INSERT INTO categories (name, name_tw, name_en, parent_id, sort) VALUES (?, ?, ?, ?, ?)', [
     name,
     name,

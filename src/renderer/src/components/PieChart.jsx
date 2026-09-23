@@ -6,7 +6,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 
 echarts.use([EChartPie, TooltipComponent, LegendComponent, CanvasRenderer])
 
-// data: [{ name: '餐饮美食', value: 123.45 }, ...]
+// data: [{ name: 'Food & Dining', value: 123.45 }, ...]
 function PieChart({ data }) {
   const ref = useRef(null)
   const chartRef = useRef(null)

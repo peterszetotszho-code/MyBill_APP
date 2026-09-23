@@ -1,96 +1,96 @@
-# MyBill — 项目文档
+# MyBill — Project Documentation
 
-## 一、项目概述
+## 1. Overview
 
-| 项目 | 内容 |
+| Item | Detail |
 |---|---|
-| 项目名称 | MyBill |
-| 项目类型 | 桌面记账应用（本地运行，无需联网） |
-| 目标平台 | Windows + macOS |
-| 货币单位 | 港币（HK$） |
-| 主要用户 | 个人日常记账 |
+| Project name | MyBill |
+| Project type | Desktop bookkeeping app (runs locally, no internet required) |
+| Target platforms | Windows + macOS |
+| Currency | Hong Kong Dollar (HK$) |
+| Primary user | Personal daily expense tracking |
 
-## 二、核心需求
+## 2. Core Requirements
 
-1. **记录花销**：记录每一笔支出，包括金额、时间、分类、备注等。
-2. **两级分类**：每笔花销归属于「一级大类 → 二级小类」。
-3. **跨平台**：同一套应用在 Windows 和 Mac 上都能运行。
+1. **Record expenses**: record each expense with amount, time, category, note, etc.
+2. **Two-level categories**: each expense belongs to a "primary category → subcategory".
+3. **Cross-platform**: the same app runs on both Windows and Mac.
 
-## 三、花销分类设计（两级）
+## 3. Expense Category Design (Two Levels)
 
-| 一级大类 | 二级小类 |
+| Primary | Subcategories |
 |---|---|
-| 餐饮美食 | 早餐、午餐、晚餐、外卖、零食饮料、聚餐 |
-| 交通出行 | 公交地铁、打车、加油、停车、火车高铁、飞机 |
-| 购物消费 | 服饰鞋包、数码家电、日用百货、美妆护肤、家居 |
-| 居家生活 | 房租、水费、电费、燃气费、物业费、维修装修 |
-| 休闲娱乐 | 电影演出、游戏、运动健身、旅游、宠物 |
-| 医疗健康 | 药品、门诊、住院、体检、牙科眼科 |
-| 教育学习 | 书籍、课程培训、学费、文具 |
-| 通讯网络 | 话费、宽带、会员订阅 |
-| 人情往来 | 红包礼金、请客送礼、孝敬父母 |
-| 其他 | 其他 |
+| Food & Dining | Breakfast, Lunch, Dinner, Takeout, Snacks & Drinks, Dining Out |
+| Transportation | Bus & Metro, Taxi, Fuel, Parking, Train, Flight |
+| Shopping | Clothing & Bags, Electronics, Daily Necessities, Beauty & Skincare, Home Goods |
+| Housing & Utilities | Rent, Water Bill, Electricity Bill, Gas Bill, Property Management, Repairs & Renovation |
+| Entertainment | Movies & Shows, Games, Sports & Fitness, Travel, Pets |
+| Health & Medical | Medicine, Outpatient, Hospitalization, Check-up, Dental & Eye Care |
+| Education | Books, Courses & Training, Tuition, Stationery |
+| Communication | Phone Bill, Broadband, Subscriptions |
+| Gifts & Social | Red Packets & Gifts, Treats & Gifts, Support for Parents |
+| Others | Others |
 
-## 四、记账字段设计（初版，可调整）
+## 4. Expense Field Design (initial version, adjustable)
 
-| 字段 | 是否必填 | 说明 |
+| Field | Required | Description |
 |---|---|---|
-| 金额 | 必填 | 港币，支持小数 |
-| 一级分类 | 必填 | 从一级大类选择 |
-| 二级分类 | 必填 | 由所选一级分类决定 |
-| 日期 | 必填 | 默认当天，可修改 |
-| 备注 | 选填 | 文字说明 |
-| 支付方式 | 选填 | 微信 / 支付宝 / 现金 / 银行卡 等 |
+| Amount | Yes | HKD, supports decimals |
+| Primary category | Yes | Selected from the primary categories |
+| Subcategory | Yes | Determined by the selected primary category |
+| Date | Yes | Defaults to today, editable |
+| Note | No | Free text |
+| Payment method | No | WeChat / Alipay / Cash / Bank Card, etc. |
 
-## 五、核心页面（初版）
+## 5. Core Pages (initial version)
 
-1. **记账首页**：快速记一笔花销。
-2. **账单列表**：按月、按分类查看历史记录。
-3. **分类管理**：自定义增删一级 / 二级分类。
-4. **简单统计**：按月汇总、分类占比。
+1. **Record**: quickly record an expense.
+2. **Bills**: view history by month and category.
+3. **Category management**: add/remove primary and secondary categories.
+4. **Statistics**: monthly summary and category breakdown.
 
-## 六、技术栈
+## 6. Tech Stack
 
-| 项目 | 选择 |
+| Item | Choice |
 |---|---|
-| 应用框架 | Electron + React ✅（已由用户拍板：成熟稳定、资料多、界面美观、易维护） |
-| 开发语言 | JavaScript ✅（已由用户拍板） |
-| 数据存储 | SQLite 本地数据库 ✅（已由用户拍板：成熟稳定、查询快、好备份） |
-| 数据库实现 | sql.js ✅（已由用户拍板：免编译，Windows/Mac 零环境依赖，数据量下性能无差别） |
-| 界面组件库 | Ant Design ✅（已由用户拍板：统一美观、开发快） |
-| 页面路由 | react-router-dom（React 事实标准，无第二个合理选项） |
-| 打包工具 | electron-builder（electron-vite 脚手架默认集成，Windows/Mac 一体） |
-| 图表库 | ECharts ✅（已由用户拍板：最主流最稳、中文文档好、无兼容坑） |
-| 多语言 | react-i18next ✅（已由用户拍板：繁/简/英三语，分类名也做三语） |
+| App framework | Electron + React ✅ (decided by the user: mature, stable, well-documented, clean UI, easy to maintain) |
+| Language | JavaScript ✅ (decided by the user) |
+| Data storage | SQLite local database ✅ (decided by the user: mature, stable, fast queries, easy to back up) |
+| Database implementation | sql.js ✅ (decided by the user: no compilation, zero environment dependencies on Windows/Mac, no performance difference at this data scale) |
+| UI component library | Ant Design ✅ (decided by the user: consistent, polished, fast to develop) |
+| Routing | react-router-dom (the de facto React standard; no reasonable alternative) |
+| Packaging | electron-builder (bundled with the electron-vite scaffold; Windows/Mac in one) |
+| Charting | ECharts ✅ (decided by the user: the most mainstream and stable, good Chinese docs, no compatibility pitfalls) |
+| i18n | react-i18next ✅ (decided by the user: Traditional/Simplified/English, category names are trilingual too) |
 
-## 六-2、开发进度
+## 6-2. Development Progress
 
-| 阶段 | 内容 | 状态 |
+| Step | Content | Status |
 |---|---|---|
-| 第 1 步 | 搭建项目骨架（electron-vite + React + AntD） | ✅ 已完成 |
-| 第 2 步 | 数据库设计与数据层（sql.js） | ✅ 已完成 |
-| 第 3 步 | 界面功能开发（记账 / 账单 / 分类 / 统计 / 饼图） | ✅ 已完成 |
-| 第 4 步 | 多语言（繁/简/英三语 + 分类三语 + 八达通） | ✅ 已完成 |
-| 第 5 步 | 本地测试运行 | ✅ 已完成（用户确认"完美"） |
-| 第 6 步 | 打包 Windows 安装程序 | ✅ 已完成（dist/MyBill-1.0.0-setup.exe）；Mac 版待 Mac 电脑 |
+| Step 1 | Project scaffolding (electron-vite + React + AntD) | ✅ Done |
+| Step 2 | Database design and data layer (sql.js) | ✅ Done |
+| Step 3 | UI features (record / bills / categories / statistics / pie chart) | ✅ Done |
+| Step 4 | i18n (Traditional/Simplified/English + trilingual categories + Octopus) | ✅ Done |
+| Step 5 | Local testing | ✅ Done (user confirmed "perfect") |
+| Step 6 | Package Windows installer | ✅ Done (dist/MyBill-1.0.0-setup.exe); macOS version pending a Mac |
 
-## 七、⚠️ 重要约定（整个项目期间必须遵守）
+## 7. ⚠️ Important Agreement (must be followed throughout the project)
 
-本项目的用户**不懂编程技术**，是初次使用 Claude Code。因此：
+The user of this project **does not know programming** and is a first-time Claude Code user. Therefore:
 
-1. **所有技术决策必须由用户拍板**。任何涉及技术的选择（技术栈、框架、库、工具、数据存储方式、界面实现方式、打包方式等），Claude 都**必须**：
-   - 列出至少 2~3 个可选方案；
-   - 用通俗易懂的语言解释每个方案「是什么、优点、缺点、适合什么情况」；
-   - 给出 Claude 自己的推荐及推荐理由；
-   - **由用户最终决定，不得擅自替用户做技术选型。**
+1. **All technical decisions must be made by the user.** For any technical choice (tech stack, framework, library, tool, data storage method, UI implementation, packaging, etc.), Claude **must**:
+   - List at least 2-3 options;
+   - Explain each option in plain, easy-to-understand language (what it is, pros, cons, what it suits);
+   - Give Claude's own recommendation and reasoning;
+   - **Let the user make the final decision — never make technical choices unilaterally.**
 
-2. **解释要通俗**：避免堆砌专业术语，必要时用生活化比喻说明。
+2. **Explain in plain language**: avoid jargon; use everyday analogies when needed.
 
-3. **功能层面**：功能设计可主动提出建议，但同样应向用户说明清楚并得到确认后再实施。
+3. **Features**: feature designs may be proposed proactively, but must also be explained clearly and confirmed by the user before implementation.
 
-## 八、未来可扩展（暂不实现，仅记录）
+## 8. Future Extensions (not implemented yet, recorded only)
 
-- 收入记录
-- 月度 / 年度报表导出（Excel）
-- 预算管理
-- 数据备份与恢复
+- Income records
+- Monthly / annual report export (Excel)
+- Budget management
+- Data backup and restore

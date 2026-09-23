@@ -1,7 +1,7 @@
 {
   "name": "heima-bill",
   "version": "1.0.0",
-  "description": "黑马记账 - 一款简洁好用的桌面记账应用",
+  "description": "MyBill - a simple and clean desktop bookkeeping app",
   "main": "./out/main/index.js",
   "author": "heima-bill",
   "homepage": "https://electron-vite.org",

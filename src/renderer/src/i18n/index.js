@@ -23,14 +23,14 @@ i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false }
 })
 
-// 根据当前语言取分类树节点的显示名（getCategories 返回 name/nameTw/nameEn）
+// Return the display name of a category tree node in the current language (getCategories returns name/nameTw/nameEn)
 export function localName(item, lang) {
   if (lang.startsWith('zh-TW')) return item.nameTw || item.name
   if (lang.startsWith('en')) return item.nameEn || item.name
   return item.name
 }
 
-// 根据当前语言取账单记录的分类名（getExpenses 返回 category_name/_tw/_en 等）
+// Return the category names of an expense record in the current language (getExpenses returns category_name/_tw/_en, etc.)
 export function localExpenseNames(r, lang) {
   const tw = lang.startsWith('zh-TW')
   const en = lang.startsWith('en')
@@ -44,7 +44,7 @@ export function localExpenseNames(r, lang) {
   }
 }
 
-// 根据当前语言取统计记录的一级分类名（getStats 返回 parent_name/_tw/_en）
+// Return the primary category name of a stats record in the current language (getStats returns parent_name/_tw/_en)
 export function localParentName(r, lang) {
   const tw = lang.startsWith('zh-TW')
   const en = lang.startsWith('en')
